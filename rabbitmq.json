@@ -1,0 +1,19 @@
+{
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "rabbitmq:management",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort":  5672, "hostPort": 0,  "servicePort":  5672, "protocol": "tcp" },
+        { "containerPort": 15672, "hostPort": 0, "servicePort": 15672, "protocol": "tcp" }
+      ]
+    }
+  },
+  "id": "rabbitmq",
+  "instances": 1,
+  "cpus": 0.5,
+  "mem": 512,
+  "uris": []
+}
+

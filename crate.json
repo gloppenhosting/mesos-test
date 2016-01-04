@@ -1,0 +1,31 @@
+{
+  "id": "crate-mesos",
+  "cpus": 0.2,
+  "mem": 20.0,
+  "instances": 2,
+  "cmd": "crate -Des.cluster.name=mesos-weave -Des.network.bind_host=0.0.0.0 -Des.network.publish_host=_ethwe:ipv4_",
+  "container":
+
+{
+  "type": "DOCKER",
+  "volumes": [],
+  "docker": {
+    "image": "docker.io/crate/crate",
+    "network": "BRIDGE",
+    "privileged": true,
+    "portMappings": [
+        { "containerPort": 4200, "hostPort": 4200, "protocol": "tcp" },
+        { "containerPort": 4300, "hostPort": 4300, "protocol": "tcp" }
+    ],
+    "parameters": [
+      {
+        "key": "hostname",
+        "value": "crate.weave.local"
+      }
+    ],
+    "forcePullImage": true
+  }
+}
+
+}
+
